@@ -4,11 +4,16 @@
 
 const levels  = [ 
   // level 0
-  ["flag", "rock", "", "", "fence", 
-   "fenceside", "rock", "fence", "", "rider",
-   "", "tree", "animate", "start animate", "animate",
-   "", "water", "", "", "",
-   "", "fence", "", "charup", "",],
+  ["flag","enemyright","","","wallGR","","","","enemyleft","rider",
+   "enemydown","","","","wallGR","","tree","tree","rock","rock",
+   "start animate","animate","animate","wallLTC","wallRBC","","","","rock","rock",
+   "","","","doorGR","","start animate","animate","animate","animate","animate",
+   "wallGU","wallGU","wallGU","wallRBC","","animate","animate","animate","animate","start animate",
+   "","","","","","","","","","",
+   "start animate","animate","animate","","tree","tree","tree","","","",
+   "","tree","","","tree","rock","tree","start animate","animate","animate",
+   "","tree","","","tree","tree","tree","","","",
+   "armorpile","tree","","","","enemydown","","","","mainCharacterUp",],
    
  //level 1
   ["flag", "water", "", "", "",
@@ -21,8 +26,8 @@ const levels  = [
   ["tree","tree","flag","tree","tree",
 	"start animate", "animate", "animate", "animate", "animate",
 	"water", "bridge", "water", "water", "water",
-	"", "", "", "fence", "",
-	"rider", "rock", "", "", "charup"]
+	"", "fenceside", "", "fence", "",
+	"rider", "", "", "", "charup"]
    
   ]; // end of levels
 
@@ -49,16 +54,14 @@ window.addEventListener("load", function() {
 
 // move character 
 document.addEventListener("keydown", function (e) {
-	console.log(currentLocationOfHorse);
 	
 	var d = new Date();
 	var n = d.getTime();
 	
 	currentTime = n;
-	console.log(currentTime);
 	
 	// 250 is time between key clicks in milliseconds
-	if(currentTime > oldTime + 150 || currentTime == oldTime){
+	if(currentTime > oldTime + 250 || currentTime == oldTime){
     switch (e.keyCode) {
 	  case 37: //left arrow
 	    if (currentLocationOfHorse % widthOfBoard !== 0) {
@@ -155,8 +158,16 @@ function tryToMove(direction) {
 		nextClass2 = "charridedown";
 		nextLocation2 = nextLocation + widthOfBoard;
 	  } // else if		
-
-	//show horse jumping 
+    
+	 // if impassible object after fence, dont move
+     if(gridBoxes[nextLocation2].className.includes("impassable") && nextClass.includes("fence")){
+	   //currentLocationOfHorse = oldLocation;
+	   //console.log(currentLocationOfHorse);
+	   //console.log("impassable");
+	   return;  
+     } // if
+	 
+	// show horse jumping 
 	gridBoxes[nextLocation].className = nextClass;
 	
 	setTimeout(function () {
@@ -171,10 +182,10 @@ function tryToMove(direction) {
 	  nextClass = gridBoxes[currentLocationOfHorse].className; //code is written 
 	  //that if there is a non passable obsticale after jump, it will throw an error
 	  
-	  //show horse and rider after landing
+	  //  show horse and rider after landing
 	  gridBoxes[currentLocationOfHorse].className = nextClass2;
 	  
-	  //if next box is a flag, go up a level
+	  //  if next box is a flag, go up a level
 	  levelUp(nextClass);
 	  
 	}, 350);
@@ -188,7 +199,7 @@ function tryToMove(direction) {
   // if there is a rider, add rider
   if (nextClass == "rider") {
 	riderOn = true;  
-  } //if
+  } //  if
   
   // if there is a bridge in the old location keep it
   if (oldClassName.includes("bridge")) {
@@ -255,9 +266,7 @@ function loadLevel(){
 	  enemyStart = i - 1;
 	  currentLocationOfEnemy = enemyStart;
 	}// if
-	if(currentLocationOfEnemy != null){
-	  console.log(currentLocationOfEnemy);	
-	} // if
+
   } // for
   
   animateBoxes = document.querySelectorAll(".animate");
@@ -296,7 +305,7 @@ function animateEnemy(boxes, index, direction){
   // moving right
   if(direction == "right"){
 	if(counter >= 1){
-		//console.log("HI");
+
 		currentLocationOfEnemy++;
 	}
 	// turn around if hit right side of animation
@@ -311,7 +320,7 @@ function animateEnemy(boxes, index, direction){
   // moving left
   } else{
 	if(counter >= 1){
-		console.log("check");
+
 		currentLocationOfEnemy--;
 	} //if 
 	
@@ -331,9 +340,9 @@ function animateEnemy(boxes, index, direction){
   }, 750);
    
    counter++;
-   //console.log(counter);
+
   // if enemy runs into player, end the game
-  console.log(currentLocationOfEnemy);
+
   if(currentLocationOfHorse == currentLocationOfEnemy){
 	document.getElementById("lose").style.display = "block";
 	clearTimeout(currentAnimation);
@@ -341,3 +350,4 @@ function animateEnemy(boxes, index, direction){
     return;	  
   } //if
 }// animateEnemy
+
