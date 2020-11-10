@@ -157,6 +157,9 @@ body{
 .wallLBC{
 	background-image:url("images/wallLBC.png");
 }
+.armorpile{
+	background-image:url("images/armorpile.png")
+}
 .message {
   display:none;
   position:fixed;
