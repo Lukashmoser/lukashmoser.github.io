@@ -12,15 +12,13 @@ body{
 	height: 500px;
 	margin-left: auto;
 	margin-right: auto;
+    background-image:url("images/background.png");
 	
 }
 
-#gameBoard div{
-	background-image:url(images/backgorund.png);
-}
-
 .rider{
-  background-image:url("images/rider.png");
+    background-image:url("images/rider.png");
+ 
 }
 .tree{
 	background-image:url("images/tree.png");

@@ -4,16 +4,16 @@
 
 const levels  = [ 
   // level 0
-  ["flag","enemyright","","","wallGR","","","","enemyleft","rider",
-   "enemydown","","","","wallGR","","tree","tree","rock","rock",
+  ["flag","enemyright","","","wallGL","","","","enemyleft","rider",
+   "enemydown","","","","wallGL","","tree","tree","rock","rock",
    "start animate","animate","animate","wallLTC","wallRBC","","","","rock","rock",
-   "","","","doorGR","","start animate","animate","animate","animate","animate",
-   "wallGU","wallGU","wallGU","wallRBC","","animate","animate","animate","animate","start animate",
+   "","","","doorGL","enemy2down","enemy2down","enemy2down","enemy2down","enemy2down","enemy2down",
+   "wallGU","wallGU","wallGU","wallRBC","enemy2down","enemy2down","enemy2down","enemy2down","enemy2down","enemy2down",
    "","","","","","","","","","",
-   "start animate","animate","animate","","tree","tree","tree","","","",
-   "","tree","","","tree","rock","tree","start animate","animate","animate",
+   "enemy2down","enemy2down","enemy2down","","tree","tree","tree","","","",
+   "","tree","","","tree","rock","tree","enemy2down","enemy2down","enemy2down",
    "","tree","","","tree","tree","tree","","","",
-   "armorpile","tree","","","","enemydown","","","","mainCharacterUp",],
+   "armorpile","tree","","","","enemydown","","","","charup",],
    
  //level 1
   ["flag", "water", "", "", "",
@@ -40,7 +40,7 @@ var currentLocationOfHorse = 0;
 var currentLocationOfEnemy = 0;
 var enemyStart ; // where the enemy starts animation, first box enemy is showed in
 var currentAnimation; // allows 1 animation per level
-var widthOfBoard = 5; 
+var widthOfBoard = 10; 
 var counter = 0;
 var currentTime = 0;
 var oldTime = 0;
@@ -135,6 +135,18 @@ function tryToMove(direction) {
   // if there is a fence and the rider is on move two spaces with animation
   if (nextClass.includes("fence")) {
 	
+	//if jumping fence from its side
+    if (nextClass.includes("fenceside") && direction == "left"){
+	  return;
+    } else if (nextClass.includes("fenceside") && direction == "right"){
+	  return; 
+    } else if (nextClass.includes("fence 1") && direction == "up"){
+	  return;
+    } else if (nextClass.includes("fence 1") && direction == "down"){
+	  return; 
+    }
+
+	
 	// rider must be on to jump
 	if (riderOn) {
 	  gridBoxes[currentLocationOfHorse].className = "";  //will bug if jump is before a bridge
@@ -159,13 +171,20 @@ function tryToMove(direction) {
 		nextLocation2 = nextLocation + widthOfBoard;
 	  } // else if		
     
-	 // if impassible object after fence, dont move
-     if(gridBoxes[nextLocation2].className.includes("impassable") && nextClass.includes("fence")){
-	   //currentLocationOfHorse = oldLocation;
-	   //console.log(currentLocationOfHorse);
-	   //console.log("impassable");
-	   return;  
-     } // if
+	  // if impassible object after fence, dont move //////////////////////////////////////////
+	  if(gridBoxes[nextLocation2].className.includes("impassable")){
+		console.log(currentLocationOfHorse);
+		gridBoxes[currentLocationOfHorse].className = nextClass2;
+		return;
+	  } // if
+	 
+	  //if fence is at edge if grid///////////////////////////////////////////////////
+	  if(nextLocation2 % widthOfBoard == 0){
+	    currentLocationOfHorse = oldLocation;
+	    gridBoxes[currentLocationOfHorse].className = nextClass2;
+	    return; 
+	  } // if
+
 	 
 	// show horse jumping 
 	gridBoxes[nextLocation].className = nextClass;
