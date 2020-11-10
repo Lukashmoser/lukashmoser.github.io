@@ -8,15 +8,15 @@ body{
 	grid-template-columns: 120px 120px 120px 120px 120px;
 	grid-template-rows: 120px 120px 120px 120px 120px;
 	justify-content: center;
-	width: 600px;
-	height: 600px;
+	width: 500px;
+	height: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	
 }
 
 #gameBoard div{
-	background-color: #00EE00;
+	background-image:url(images/backgorund.png);
 }
 
 .rider{
@@ -37,8 +37,11 @@ body{
 .fence{
 	background-image:url("images/fence.png");
 }
-.fenceside{
-	background-image:url("images/fenceSide.png");
+.doorGL{
+	background-image:url("images/doorGL.png");
+}
+.doorGR{
+	background-image:url("images/doorGR.png");
 }
 .charup{
 	background-image:url("images/mainCharacterUp.png");
@@ -51,6 +54,30 @@ body{
 }
 .charright{
 	background-image:url("images/mainCharacterR.png");
+}
+.armorright{
+	background-image:url("images/armoredR");
+}
+.armorleft{
+	background-image:url("images/armoredL");
+}
+.armorup{
+	background-image:url("images/armoredU");
+}
+.armordown{
+	background-image:url("images/armoredD");
+}
+.enemy2up{
+	background-image:url("images/enemy2U.png");
+}
+.enemy2down{
+    background-image:url("images/enemy2D.png");	
+}
+.enemy2left{
+	background-image:url("images/enemy2L.png");
+}
+.enemy2right{
+	background-image:url("images/enemy2R.png");
 }
 .enemyup{
 	background-image:url("images/enemyU.png");
@@ -76,6 +103,18 @@ body{
 .charrideright{
 	background-image:url("images/mainCharacterRiderR.png");
 }
+.armorrideup{
+	background-image:url("images/armoredUK.png");
+}
+.armorridedown{
+	background-image:url("images/armoredDK.png");
+}
+.armorrideleft{
+	background-image:url("images/armoredLK.png");
+}
+.armorrideright{
+	background-image:url("images/armoredRK.png");
+}
 .overfenceup{
 	background-image:url("images/fenceJump.png");
 }
@@ -91,7 +130,33 @@ body{
 .bridge{
 	background-color:#800020 !important;
 }
-
+.rockfloor{
+	background-image:url("images/rocktile.png");
+}
+.wallGD{
+	background-image:url("images/wallGD.png");
+}
+.wallGL{
+	background-image:url("images/wallGL.png");
+}
+.wallGR{
+	background-image:url("images/wallGR.png");
+}
+.wallGU{
+	background-image:url("images/wallGU.png");
+}
+.wallLBC{
+	background-image:url("images/wallLBC.png");
+}
+.wallLTC{
+	background-image:url("images/wallLTC.png");
+}
+.wallRBC{
+	background-image:url("images/wallRBC.png");
+}
+.wallLBC{
+	background-image:url("images/wallLBC.png");
+}
 .message {
   display:none;
   position:fixed;
