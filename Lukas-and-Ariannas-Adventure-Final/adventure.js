@@ -44,7 +44,7 @@
 
 const totalLevels = 2;
 const noPassObstacles = ["rock", "tree", "water", "wallGL", "wallGR", "wallGD", "wallGU", "wallLBC", "wallLTC", "wallRBC", "wallRTC"]; ///
-var currentLevel = 0; // starting level
+var currentLevel = 1; // starting level
 var riderOn = false; // is the rider on?
 var armorOn = false; // is the armor on? ///
 var gridBoxes ;
@@ -576,7 +576,7 @@ function loadLevel(){
 		  currentLocationOfEnemy9 = enemyStart9;
 		}
 		if(levelMap[i].includes("start animate10")){ 
-		  enemyStart10 = i + 7;
+		  enemyStart10 = i + 6;
 		  currentLocationOfEnemy10 = enemyStart10;
 		}
 	} else if(currentLevel == 2){
@@ -2208,7 +2208,6 @@ counter++;
   // if enemy runs into player, end the game
 
   if(currentLocationOfHorse == currentLocationOfEnemy11){
-	console.log("current location of animate 11" + currentLocationOfEnemy11)
 	document.getElementById("lose").style.display = "block";
 	startLocation1 = originalLocation1;
 	startLocation2 = originalLocation2;
