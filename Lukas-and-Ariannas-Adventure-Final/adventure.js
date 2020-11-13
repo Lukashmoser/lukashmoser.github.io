@@ -538,7 +538,7 @@ function loadLevel(){
 	}
 	if(currentLevel == 0){
 		if(levelMap[i].includes("start animate1")){ 
-		  enemyStart1 = i;
+		  enemyStart1 = i - 1;
 		  currentLocationOfEnemy1 = enemyStart1;
 		}// if
 		if(levelMap[i].includes("start animate2")){ 
@@ -560,7 +560,7 @@ function loadLevel(){
 	} else if (currentLevel == 1){
 	
 		if(levelMap[i].includes("start animate6")){ 
-		  enemyStart6 = i ;
+		  enemyStart6 = i;
 		  currentLocationOfEnemy6 = enemyStart6;
 		}
 		if(levelMap[i].includes("start animate7")){ 
