@@ -44,7 +44,7 @@
 
 const totalLevels = 2;
 const noPassObstacles = ["rock", "tree", "water", "wallGL", "wallGR", "wallGD", "wallGU", "wallLBC", "wallLTC", "wallRBC", "wallRTC"]; ///
-var currentLevel = 1; // starting level
+var currentLevel = 0; // starting level
 var riderOn = false; // is the rider on?
 var armorOn = false; // is the armor on? ///
 var gridBoxes ;
