@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Pixel Quest</title>
+	<link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
+    
+    <!-- include an external style sheet -->
+    <link rel="stylesheet" href="adventure.css">  
+    
+    <!-- include an external JavaScript file -->
+    <script src="adventure.js"></script>
+  </head>
+  
+  <body>
+	  <img id="banner" src="images/banner.png" alt="Pixel Quest">
+	  <div id = "gameBoard">
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+        <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>	
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>	
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	  </div>
+	
+    <div id= wrapper>	
+	  <div class="sidebox" id="story">
+	    <h1>Story</h1>
+	    <p>
+	      Fred the adventurer has been tasked with raiding three necromancer strongholds. Each stronghold is guarded by skeletons and a locked door. Luckily the necromancers are always losing things so outside each stronghold there is a key somewhere in the forest. Your job is to sneak past all the skeletons enter the stronghold and grab the treasure.
+	    </p>
+	  </div>
+	  <div class="sidebox" id="info">
+	    <h1>Info</h1>
+	    <ol>
+	      <li>Use the arrow keys to move around.</li>
+		  <li>Picking up armor allows you to kill unarmored skeletons and druids.</li>
+		  <li>Don't spam the keys!!!</li>
+		  <li>Items like the key and armor will be automatically picked up.</li>
+		  <li>Druids cannot be killed but you can pass through them.</li>
+	    </ol>
+	  </div>
+	</div>
+	
+	<div class="message" id="lose">
+	  <div class = "text">
+	  You Lose<br>
+	  <button class="button" onclick="loadLevel()">Retry</button>
+	  <button class="button" onclick=location.reload()>Restart</button>
+	  </div>
+	</div>
+	 
+	<div class="message" id="levelup">
+	<div class = "text">Next Level...</div>
+	</div>
+	<div class="end" id="end">
+	  <div class="text">
+	  Congratulations, you won the game!
+	  <button class="button" onclick=location.reload()>Replay</button>\
+	  </div>
+	</div>
+	
+  </body>
+  
+</html>
+
+
+
+
+
